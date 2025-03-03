@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block title %}Diagnosis list{% endblock %}
+
+{% block content %}
+<table class="table table-striped table-hover table-bordered">
+    <thead class="table-dark">
+    <tr>
+        <th>PATIENT'S NAME</th>
+        <th>DOCTOR'S NAME</th>
+        <th>DIAGNOSIS</th>
+        <th>DATE DIAGNOSED</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for x in diagnosiss %}
+    <tr>
+        <td>{{ x.patient }}</td>
+        <td>{{ x.doctor }}</td>
+        <td>{{ x.diagnosis }}</td>
+        <td>{{ x.date_diagnosed }}</td>
+        <td><a href="{% url 'updatediagnosis' x.id %}" class="btn btn-success"
+               type="button">UPDATE DIAGNOSIS</a></td>
+        <td><a href="{% url 'deletediagnosis' x.id %}" class="btn btn-danger" type="button"
+               onclick="return confirm('Are you sure you want to delete the diagnosis?')">DELETE</a></td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
