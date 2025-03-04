@@ -21,6 +21,7 @@ class Diagnosis(models.Model):
         return self.patient
 
 class Doctor(models.Model):
+    image = models.ImageField(upload_to='doctor_images/', blank=True)
     first_name = models.CharField(max_length=20)
     last_name = models.CharField(max_length=20)
     email = models.EmailField()

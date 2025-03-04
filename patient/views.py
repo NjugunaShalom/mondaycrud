@@ -28,7 +28,7 @@ def diagnosis(request):
 
 def doctor(request):
     if request.method == "POST":
-        form = DoctorForm(request.POST)
+        form = DoctorForm(request.POST,request.FILES)
         if form.is_valid():
             form.save()
             return redirect('doctor')

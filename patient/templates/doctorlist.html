@@ -3,9 +3,10 @@
 {% block title %}Doctor list{% endblock %}
 
 {% block content %}
-<table class="table table-striped table-hover table-bordered">
+<table class="table table-striped table-hover table-bordered" xmlns:https="http://www.w3.org/1999/xhtml">
     <thead class="table-dark">
     <tr>
+        <th>PICTURE</th>
         <th>FIRST NAME</th>
         <th>LAST NAME</th>
         <th>E-MAIL</th>
@@ -16,6 +17,13 @@
     <tbody>
     {% for doctor in doctors %}
     <tr>
+        <td>
+            {% if doctor.image %}
+            <img src="{{ doctor.image.url }}" alt="" style="height: 40px;width: 40px">
+            {% else %}
+            <i class="fa-solid fa-user"></i>
+            {% endif %}
+        </td>
         <td>{{ doctor.first_name }}</td>
         <td>{{ doctor.last_name }}</td>
         <td>{{ doctor.email }}</td>

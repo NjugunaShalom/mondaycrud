@@ -19,6 +19,11 @@ class DoctorForm(forms.ModelForm):
         model = Doctor
         fields = '__all__'
         widgets = {
+            'image': forms.ClearableFileInput(
+                attrs={'class': 'form-control',
+                       'accept': 'image/*',
+                       'title':'Select an Image'}
+            ),
             'first_name': forms.TextInput(attrs={'class': 'form-control','placeholder': 'Enter your first name'}),
             'last_name': forms.TextInput(attrs={'class': 'form-control','placeholder': 'Enter your last name'}),
             'email': forms.EmailInput(attrs={'class': 'form-control','placeholder': 'Enter your email'}),
